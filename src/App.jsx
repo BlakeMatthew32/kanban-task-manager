@@ -1,11 +1,15 @@
 import './App.css'
 
+import Header from './header/header'
+import Sidebar from './sidebar/sidebar'
+
 function App() {
 
   return (
-    <>
-      <h1>Kanban</h1>
-    </>
+    <div className='app--container'>
+      <Header />
+      <Sidebar />
+    </div>
   )
 }
 
