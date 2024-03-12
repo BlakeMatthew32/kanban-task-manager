@@ -1,15 +1,14 @@
-import './App.css'
-import "./sidebar/sidebar.css"  
+import './App.css' 
 
 import Header from './header/header'
-import Sidebar from './sidebar/sidebar'
+import Navbar from './Navbar/Navbar'
 
 function App() {
 
   return (
     <div className='app--container'>
       <Header />
-      <Sidebar />
+      <Navbar />
     </div>
   )
 }
