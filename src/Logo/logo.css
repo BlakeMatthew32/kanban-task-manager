@@ -1,0 +1,34 @@
+.logo {
+    height: 100%;
+    display: flex;
+    place-items: center;
+    gap: .75rem;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+}
+
+.logo__line-container {
+    display: flex;
+    gap: 3px;
+}
+
+.logo__line {
+    width: 6px;
+    height: 25px;
+    border-radius: 2px;
+    background-color: hsl(242, 48%, 58%);
+}
+
+.logo__line:nth-child(2) {
+    opacity: 75%;
+}
+
+.logo__line:nth-child(3) {
+    opacity: 50%;
+}

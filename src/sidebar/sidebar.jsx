@@ -1,8 +1,16 @@
-import "../App.css"
+import "./sidebar.css"
+
+import Logo from "../Logo/logo"
 
 const Sidebar = () => {
     return (
-        <div className="sidebar"></div>
+        <>
+            
+            <sidebar className="sidebar">
+                <Logo />
+            </sidebar>
+        </>
+        
     )
 }
 

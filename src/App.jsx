@@ -1,4 +1,5 @@
 import './App.css'
+import "./sidebar/sidebar.css"  
 
 import Header from './header/header'
 import Sidebar from './sidebar/sidebar'
