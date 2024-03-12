@@ -3,8 +3,6 @@
     display: flex;
     place-items: center;
     gap: .75rem;
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .logo h1 {
