@@ -1,21 +1,19 @@
 
 import "./boards.css"
-import useArray from "../../hooks/useArray"
 
-// boards will take in the data from the database/localstorage passed as props
+// boards will take in the data from the database/localstorage passed as props/context
 
-const Boards = ({boardListTitles, activeBoard, createBoardClick}) => {
+const Boards = ({boards, createBoardClick}) => {
 
-    const boardsListElements = boardListTitles.value.map((element, index) => <p key={index}>{element}</p>)
+    const boardsElms = boards.map(element => <p key={element.id}>{element.name}</p>)
 
     return (
         <div className="boards">
-            <p className="boards__total">ALL BOARDS <span>({boardsListElements.length})</span></p>
+            <p className="boards__total">ALL BOARDS <span>({boards.length})</span></p>
             <ul>
-                {...boardsListElements}
+                {...boardsElms}
             </ul>
-            <button onClick={ () => createBoardClick(boardsListElements.length + 1) }>+ Create New Board</button>
-            <button onClick={ () => boardListTitles.remove(boardsListElements.length - 1) }>+ delete last</button>
+            <button onClick={createBoardClick}>+ Create New Board</button>
         </div>
     )
 }

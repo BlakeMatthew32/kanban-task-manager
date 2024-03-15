@@ -1,21 +1,33 @@
+import { useState } from 'react'
 import './App.css' 
 
+//components
 import Header from './components/header/header'
 import Navbar from './components/Navbar/Navbar'
+import BoardForm from './components/boardForm/BoardForm'
+
+// custom hooks
 import useArray from './hooks/useArray'
 
 function App() {
 
-  const boards = useArray([1, 2, 3])
+  const [isCreateBoard, setIsCreateBoard] = useState(false)
+  const boardsList = useArray([])
 
-  const createBoardClick = (boardTitle) => {
-    boards.push(boardTitle)
+  const createBoardClick = () => {
+    setIsCreateBoard(true)
+  }
+
+  const createBoard = (board) => {
+    boardsList.push(board)
+    setIsCreateBoard(false)
   }
 
   return (
     <div className='app--container'>
       <Header />
-      <Navbar boards={boards} createBoardClick={createBoardClick} />
+      <Navbar createBoardClick={createBoardClick} boards={boardsList.value} />
+      {isCreateBoard && <BoardForm createBoard={createBoard} />}
     </div>
   )
 }

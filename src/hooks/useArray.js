@@ -13,6 +13,8 @@ const useArray = (initialValue = []) => {
         setValue(prev => prev.filter((_, i) => i !== index))
     }
 
+    
+
     return {value, setValue, isEmpty, push, remove}
 }
 

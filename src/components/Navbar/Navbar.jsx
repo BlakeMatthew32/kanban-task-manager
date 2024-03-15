@@ -8,7 +8,7 @@ const Navbar = ({ boards, createBoardClick }) => {
         <>
             <nav className="navbar">
                 <Logo />
-                <Boards boardListTitles={boards}  createBoardClick={createBoardClick} />
+                <Boards createBoardClick={createBoardClick} boards={boards} />
             </nav>
         </>
         
