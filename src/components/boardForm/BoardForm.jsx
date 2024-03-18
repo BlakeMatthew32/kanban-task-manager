@@ -27,8 +27,7 @@ const BoardForm = ({ createBoard }) => {
     }
 
     return (
-        <div className="form__wrapper">
-            <h3>Add New Board</h3>
+        <>
             <form onSubmit={onSubmit} className="form">
                 <label htmlFor="board-name">Name</label>
                 <input 
@@ -41,7 +40,7 @@ const BoardForm = ({ createBoard }) => {
                 />
                 <button className="button__primary form__button">Create New Board</button>
             </form>
-        </div>
+        </>
     )
 }
 
