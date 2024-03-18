@@ -8,7 +8,6 @@ import Modal from './components/Modal/Modal'
 import BoardForm from './components/boardForm/BoardForm'
 
 // custom hooks
-import useModal from './hooks/useModal'
 import useBoard from './hooks/useBoard'
 
 function App() {
