@@ -1,23 +1,25 @@
-import { useState } from "react"
+
 import useArray from "./useArray"
+import useModal from "./useModal"
 
 // Look at potential way to make this more generic  
 
 const useBoard = () => {
+    
+    const {modalOpen, toggleModal} = useModal(false)
 
-    const [isCreateBoard, setIsCreateBoard] = useState(false)
     const {value: boardList, push } = useArray([])
 
     const createBoardClick = () => {
-        setIsCreateBoard(true)
+        toggleModal()
     }
     
     const createBoard = (board) => {
         push(board)
-        setIsCreateBoard(false)
+        toggleModal()
     }
 
-    return {isCreateBoard, boardList, createBoardClick, createBoard, setIsCreateBoard}
+    return {modalOpen, boardList, createBoardClick, createBoard, toggleModal}
 }
 
 export default useBoard

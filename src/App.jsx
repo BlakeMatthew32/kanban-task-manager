@@ -8,27 +8,25 @@ import Modal from './components/Modal/Modal'
 import BoardForm from './components/boardForm/BoardForm'
 
 // custom hooks
+import useModal from './hooks/useModal'
 import useBoard from './hooks/useBoard'
 
 function App() {
 
   const {
-    isCreateBoard, 
+    modalOpen, 
     boardList, 
     createBoardClick, 
     createBoard,
-    setIsCreateBoard} = useBoard()
-
-  const handleClose = () => {
-    setIsCreateBoard(false)
-  }
+    toggleModal
+  } = useBoard()
  
   return (
     <div className='app--container'>
       <Header />
       <Navbar createBoardClick={createBoardClick} boards={boardList} />
-      {isCreateBoard && 
-        <Modal title={"Add New Board"} closeModal={handleClose}>
+      {modalOpen && 
+        <Modal title={"Add New Board"} toggle={toggleModal}>
           <BoardForm createBoard={createBoard} />
         </Modal>
       }
