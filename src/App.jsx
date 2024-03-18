@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './App.css' 
 
 //components
@@ -8,7 +8,6 @@ import Modal from './components/Modal/Modal'
 import BoardForm from './components/boardForm/BoardForm'
 
 // custom hooks
-import useArray from './hooks/useArray'
 import useBoard from './hooks/useBoard'
 
 function App() {
@@ -17,14 +16,19 @@ function App() {
     isCreateBoard, 
     boardList, 
     createBoardClick, 
-    createBoard} = useBoard()
+    createBoard,
+    setIsCreateBoard} = useBoard()
 
+  const handleClose = () => {
+    setIsCreateBoard(false)
+  }
+ 
   return (
     <div className='app--container'>
       <Header />
       <Navbar createBoardClick={createBoardClick} boards={boardList} />
       {isCreateBoard && 
-        <Modal title={"Add New Board"}>
+        <Modal title={"Add New Board"} closeModal={handleClose}>
           <BoardForm createBoard={createBoard} />
         </Modal>
       }

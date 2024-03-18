@@ -17,7 +17,7 @@ const useBoard = () => {
         setIsCreateBoard(false)
     }
 
-    return {isCreateBoard, boardList, createBoardClick, createBoard}
+    return {isCreateBoard, boardList, createBoardClick, createBoard, setIsCreateBoard}
 }
 
 export default useBoard
