@@ -18,6 +18,7 @@
 }
 
 .form__button {
+    cursor: pointer;
     margin-top: 1.5rem;
     background-color: hsl(242, 48%, 58%);
     color: white;
@@ -25,4 +26,9 @@
     padding: 0.625rem 1.25rem;
     border-radius: 9999px;
     font-size: 0.75rem;
+}
+
+.form__button:hover,
+.form__button:focus {
+    background-color: hsl(242, 48%, 62%);
 }
