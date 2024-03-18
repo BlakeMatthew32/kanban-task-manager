@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { v4 as uuid } from 'uuid'
 
+import "./boardForm.css"
+
 const BoardForm = ({ createBoard }) => {
 
     //using an object to allow for future fields 

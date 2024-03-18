@@ -1,0 +1,41 @@
+.boards {
+
+}
+
+.boards__total {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: hsl(216, 15%, 57%);
+    margin-bottom: 0.625rem;
+}
+
+.boards__create-button {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: hsl(242, 48%, 58%);
+    font-weight: 600;
+    overflow: hidden;
+    margin-top: 0.625rem;
+    padding-bottom: 0.25rem;
+}
+
+.boards__create-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.175em;
+    background-color: hsl(242, 48%, 58%);
+    transform: translateX(-100%);
+    transition: transform 300ms;
+}
+
+.boards__create-button:hover::after,
+.boards__create-button:focus::after {
+    opacity: 1;
+    transform: translateX(0);
+}

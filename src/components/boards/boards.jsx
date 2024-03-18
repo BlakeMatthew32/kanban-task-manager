@@ -13,7 +13,7 @@ const Boards = ({boards, createBoardClick}) => {
             <ul>
                 {...boardsElms}
             </ul>
-            <button onClick={createBoardClick}>+ Create New Board</button>
+            <button className="boards__create-button" onClick={createBoardClick}>+ Create New Board</button>
         </div>
     )
 }
