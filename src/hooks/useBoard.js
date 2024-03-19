@@ -1,12 +1,12 @@
 
 import useArray from "./useArray"
-import useModal from "./useModal"
+import useToggle from "./useToggle"
 
 // Look at potential way to make this more generic  
 
 const useBoard = () => {
     
-    const {modalOpen, toggleModal} = useModal(false)
+    const [modalOpen, toggleModal] = useToggle(false)
 
     const {value: boardList, push } = useArray([])
 

@@ -14,7 +14,11 @@ const BoardForm = ({ createBoard }) => {
         const board = {
             name: formData.name,
             columns: ["Todo", "Ongoing", "Done"],
-            tasks: [],
+            tasks: {
+                todo: [],
+                doing: [],
+                completed: []
+            },
             id: uuid(),
         }
 
