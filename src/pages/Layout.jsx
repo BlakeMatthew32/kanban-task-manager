@@ -1,12 +1,14 @@
+
+import { Outlet } from "react-router-dom"
+
+//components
 import Modal from "../components/Modal/Modal"
 import Navbar from "../components/Navbar/Navbar"
 import Header from "../components/header/header"
 import BoardForm from '../components/boardForm/BoardForm'
-import TasksDashboard from "../components/tasksDashboard/TasksDashboard"
+
+// custom hooks
 import useBoard from "../hooks/useBoard"
-import { Outlet } from "react-router-dom"
-
-
 
 const Layout = () => {
 
@@ -29,7 +31,6 @@ const Layout = () => {
         </Modal>
         }
         <Outlet context={{boardListEmpty, createBoardClick}}/>
-        {/* <TasksDashboard boardListEmpty={boardListEmpty} createBoardClick={createBoardClick} /> */}
     </div>
     )
 }
