@@ -1,34 +1,29 @@
 import './App.css' 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 //components
+import Layout from './pages/Layout'
 import Header from './components/header/header'
 import Navbar from './components/Navbar/Navbar'
 import Modal from './components/Modal/Modal'
-import BoardForm from './components/boardForm/BoardForm'
+import TasksDashboard from './components/tasksDashboard/TasksDashboard'
 
 // custom hooks
 import useBoard from './hooks/useBoard'
 
 function App() {
 
-  const {
-    modalOpen, 
-    boardList, 
-    createBoardClick, 
-    createBoard,
-    toggleModal
-  } = useBoard()
+  
  
   return (
-    <div className='app--container'>
-      <Header />
-      <Navbar createBoardClick={createBoardClick} boards={boardList} />
-      {modalOpen && 
-        <Modal title={"Add New Board"} toggle={toggleModal}>
-          <BoardForm createBoard={createBoard} />
-        </Modal>
-      }
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<TasksDashboard />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    
   )
 }
 

@@ -10,6 +10,8 @@ const useBoard = () => {
 
     const {value: boardList, push } = useArray([])
 
+    const boardListEmpty = boardList.length <= 0
+
     const createBoardClick = () => {
         toggleModal()
     }
@@ -19,7 +21,14 @@ const useBoard = () => {
         toggleModal()
     }
 
-    return {modalOpen, boardList, createBoardClick, createBoard, toggleModal}
+    return {
+        modalOpen, 
+        boardList, 
+        boardListEmpty, 
+        createBoardClick, 
+        createBoard, 
+        toggleModal
+    }
 }
 
 export default useBoard
