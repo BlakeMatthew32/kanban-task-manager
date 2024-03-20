@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, doc, getDocs, setDoc, getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0Ztr9QrEBXVls2GRK7D7cxjk1V9hasdM",
@@ -29,4 +29,15 @@ const getBoards = async() => {
   return docs
 }
 
-export { getBoards }
+const addBoard = async(board) => {
+  console.log('adding....')
+  const {name, columns, tasks,  id} = board
+  await setDoc(doc(boardsCollectionRef, id), {
+    name: name,
+    columns: columns,
+    tasks: tasks
+  })
+
+}
+
+export { getBoards, addBoard }

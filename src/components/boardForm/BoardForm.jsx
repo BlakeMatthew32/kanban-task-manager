@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { v4 as uuid } from 'uuid'
+import { addBoard } from "../../../firebaseAPI"
 
 import "./boardForm.css"
 
@@ -14,15 +15,13 @@ const BoardForm = ({ createBoard }) => {
         const board = {
             name: formData.name,
             columns: ["Todo", "Ongoing", "Done"],
-            tasks: {
-                todo: [],
-                doing: [],
-                completed: []
-            },
+            tasks: [
+
+            ],
             id: uuid(),
         }
 
-        createBoard(board)
+        addBoard(board)
     }
 
     const handleChange = (event) => {
