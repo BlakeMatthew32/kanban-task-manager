@@ -36,9 +36,8 @@ const getBoard = async(docId) => {
 
   const docRef = doc(db, "boards", docId);
   const docSnap = await getDoc(docRef);
-  console.log(docSnap.data())
 
-  return docSnap.data()
+  return docSnap?.data() || false
 }
 
 const addBoard = async(board) => {

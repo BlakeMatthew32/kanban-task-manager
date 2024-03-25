@@ -23,7 +23,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<TasksDashboard />} />
+            <Route index path='boards' element={<TasksDashboard />} />
             <Route path='boards/:id' element={<TaskBoard />} />
           </Route>
         </Routes>
