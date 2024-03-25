@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { collection, doc, getDocs, setDoc, getFirestore } from "firebase/firestore"
+import { collection, doc, getDocs, setDoc, getFirestore, getDoc } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0Ztr9QrEBXVls2GRK7D7cxjk1V9hasdM",
@@ -20,6 +20,9 @@ const db = getFirestore(app)
 
 const boardsCollectionRef = collection(db, "boards")
 
+
+// API functions 
+
 const getBoards = async() => {
   const snapshot = await getDocs(boardsCollectionRef)
   const docs = snapshot.docs.map(doc => ({
@@ -27,6 +30,15 @@ const getBoards = async() => {
     id: doc.id
   }))
   return docs
+}
+
+const getBoard = async(docId) => {
+
+  const docRef = doc(db, "boards", docId);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap.data())
+
+  return docSnap.data()
 }
 
 const addBoard = async(board) => {
@@ -40,4 +52,4 @@ const addBoard = async(board) => {
 
 }
 
-export { getBoards, addBoard }
+export { getBoards, getBoard, addBoard }
