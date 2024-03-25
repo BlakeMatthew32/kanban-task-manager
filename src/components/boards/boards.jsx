@@ -14,13 +14,15 @@ const Boards = ({ createBoardClick }) => {
     })
 
     const boardsElms = boards?.map(element => 
-        <NavLink to={`boards/${element.id}`} key={element.id}>{element.name}</NavLink>
+        <li>
+            <NavLink to={`boards/${element.id}`} key={element.id}>{element.name}</NavLink>
+        </li>
     )
 
     return (
         <div className="boards">
             <p className="boards__total">ALL BOARDS <span>({boardsElms?.length})</span></p>
-            <ul>
+            <ul className="boards__list">
                 {boardsElms}
             </ul>
             <button className="boards__create-button" onClick={createBoardClick}>+ Create New Board</button>

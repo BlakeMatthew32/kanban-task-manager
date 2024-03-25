@@ -1,5 +1,25 @@
-.boards {
+.boards__list {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: 1rem;
+    margin-inline-end: 1rem;
+    list-style: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
 
+.boards__list a {
+    text-decoration: none;
+    display: block;
+    padding: .875rem 1.75rem;
+    border-radius: 0 20px 20px 0;
+    width: 100%;
+}
+
+.boards__list .active {
+    background-color: hsl(242, 48%, 58%);
+    color: white;
 }
 
 .boards__total {
@@ -8,6 +28,7 @@
     letter-spacing: 0.4px;
     color: hsl(216, 15%, 57%);
     margin-bottom: 0.625rem;
+    padding-left: 1.75rem;
 }
 
 .boards__create-button {
@@ -20,6 +41,7 @@
     overflow: hidden;
     margin-top: 0.625rem;
     padding-bottom: 0.25rem;
+    margin-left: 1.75rem;
 }
 
 .boards__create-button::after {
@@ -27,6 +49,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    overflow: hidden;
     width: 100%;
     height: 0.175em;
     background-color: hsl(242, 48%, 58%);
