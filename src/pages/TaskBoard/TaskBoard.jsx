@@ -13,6 +13,8 @@ const TaskBoard = () => {
         }
     })
     
+
+    // if the current board does not exist add button to return to boards dashboard
     return <div>{board?.name || board}</div>
 }
 
