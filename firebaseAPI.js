@@ -37,7 +37,7 @@ const getBoard = async(docId) => {
   const docRef = doc(db, "boards", docId);
   const docSnap = await getDoc(docRef);
 
-  return docSnap?.data() || false
+  return docSnap?.data() || "This board Does not exist."
 }
 
 const addBoard = async(board) => {

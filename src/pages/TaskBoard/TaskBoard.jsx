@@ -9,11 +9,11 @@ const TaskBoard = () => {
     const { data: board } = useQuery({
         queryKey: ["boards", params.id],
         queryFn: () => {
-            return getBoard(params.id)
+            return getBoard(params.id) 
         }
     })
     
-    return <div>{board?.name}</div>
+    return <div>{board?.name || board}</div>
 }
 
 export default TaskBoard
