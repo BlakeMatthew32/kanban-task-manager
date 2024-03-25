@@ -8,29 +8,22 @@ import Header from "../components/header/header"
 import BoardForm from '../components/boardForm/BoardForm'
 
 // custom hooks
-import useBoard from "../hooks/useBoard"
+import useToggle from "../hooks/useToggle"
 
 const Layout = () => {
 
-    const {
-        modalOpen, 
-        boardList,
-        boardListEmpty,
-        createBoardClick, 
-        createBoard,
-        toggleModal
-    } = useBoard()
+    const [modalOpen, toggleModal] = useToggle()
 
     return (
     <div className='app--container'>
         <Header />
-        <Navbar createBoardClick={createBoardClick} boards={boardList} />
+        <Navbar toggleModal={toggleModal}/>
         {modalOpen && 
         <Modal title={"Add New Board"} toggle={toggleModal}>
-            <BoardForm createBoard={createBoard} />
+            <BoardForm toggleModal={toggleModal} />
         </Modal>
         }
-        <Outlet context={{boardListEmpty, createBoardClick}}/>
+        <Outlet context={{}}/>
     </div>
     )
 }

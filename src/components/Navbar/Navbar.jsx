@@ -3,12 +3,12 @@ import "./Navbar.css"
 import Logo from "../Logo/logo"
 import Boards from "../boards/boards"
 
-const Navbar = ({ boards, createBoardClick }) => {
+const Navbar = ({ toggleModal }) => {
     return (
         <>
             <nav className="navbar">
                 <Logo />
-                <Boards createBoardClick={createBoardClick} boards={boards} />
+                <Boards toggleModal={toggleModal}/>
             </nav>
         </>
         

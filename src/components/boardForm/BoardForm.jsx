@@ -3,11 +3,20 @@ import { v4 as uuid } from 'uuid'
 import { addBoard } from "../../../firebaseAPI"
 
 import "./boardForm.css"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-const BoardForm = ({ createBoard }) => {
+const BoardForm = ({ toggleModal }) => {
 
     //using an object to allow for future fields 
     const [formData, setFormData] = useState({name: ""}) 
+    const queryClient = useQueryClient()
+
+    const createBoardMutation = useMutation({
+        mutationFn: addBoard,
+        onSuccess: data => {
+            queryClient.invalidateQueries(["boards"])
+        }
+    })
 
     const onSubmit = (event) => {
         //columns to be user input eventually
@@ -20,8 +29,8 @@ const BoardForm = ({ createBoard }) => {
             ],
             id: uuid(),
         }
-
-        addBoard(board)
+        createBoardMutation.mutate(board)
+        toggleModal()
     }
 
     const handleChange = (event) => {
