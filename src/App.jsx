@@ -12,7 +12,18 @@ import {
   QueryClientProvider
  } from '@tanstack/react-query'
 
+import { addBoard, getBoards } from '../firebaseAPI'
+
+
 const queryClient = new QueryClient()
+queryClient.setQueryDefaults(['boards'], { queryFn: getBoards })
+
+queryClient.setMutationDefaults(['createBoard'], 
+  { mutationFn: addBoard, 
+    onSuccess: data => {
+      queryClient.invalidateQueries(["boards"])
+    }
+})
 
 function App() {
 
@@ -23,7 +34,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index path='boards' element={<TasksDashboard />} />
+            <Route index element={<TasksDashboard />} />
             <Route path='boards/:id' element={<TaskBoard />} />
           </Route>
         </Routes>

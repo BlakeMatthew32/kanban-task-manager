@@ -23,7 +23,7 @@ const Layout = () => {
             <BoardForm toggleModal={toggleModal} />
         </Modal>
         }
-        <Outlet context={{}}/>
+        <Outlet context={{ toggleModal }}/>
     </div>
     )
 }

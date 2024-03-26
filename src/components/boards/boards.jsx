@@ -9,8 +9,7 @@ import { NavLink } from "react-router-dom"
 const Boards = ({ toggleModal }) => {
 
     const { data: boards } = useQuery({
-        queryKey: ["boards"],
-        queryFn: getBoards
+        queryKey: ["boards"]
     })
 
     const boardsElms = boards?.map((element, index) => 

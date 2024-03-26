@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <header className="Header">
             {/* h2 is place holder that will be set depending on current board */}
-            <h2>{board?.name}</h2> 
+            <h2>{board?.name || "Tasks Dashboard"}</h2> 
             <button className="header__button">+ Add new task</button>
         </header>
     )

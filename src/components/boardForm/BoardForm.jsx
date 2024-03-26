@@ -11,12 +11,7 @@ const BoardForm = ({ toggleModal }) => {
     const [formData, setFormData] = useState({name: ""}) 
     const queryClient = useQueryClient()
 
-    const createBoardMutation = useMutation({
-        mutationFn: addBoard,
-        onSuccess: data => {
-            queryClient.invalidateQueries(["boards"])
-        }
-    })
+    const createBoardMutation = useMutation({ mutationKey: ['createBoard'] })
 
     const onSubmit = (event) => {
         //columns to be user input eventually
@@ -24,9 +19,11 @@ const BoardForm = ({ toggleModal }) => {
         const board = {
             name: formData.name,
             columns: ["Todo", "Ongoing", "Done"],
-            tasks: [
-
-            ],
+            tasks: {
+                todo: [],
+                ongoing: [],
+                done: []
+            },
             id: uuid(),
         }
         createBoardMutation.mutate(board)

@@ -1,0 +1,22 @@
+.taskDashboard__card-wrapper {
+    margin: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.taskDashboard__card {
+    width: 200px;
+    background-color: hsl(242, 48%, 58%);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+}
+
+.taskDashboard__card a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+
